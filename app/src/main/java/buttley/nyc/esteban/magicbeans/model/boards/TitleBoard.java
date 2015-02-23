@@ -14,7 +14,7 @@ public class TitleBoard extends Board {
     }
 
     @Override
-    public void placeWidgets() {
+    public void addAllWidgets() {
 
     }
 

@@ -1,11 +1,14 @@
 package buttley.nyc.esteban.magicbeans.model.characters;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.util.Log;
 
 import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
 import buttley.nyc.esteban.magicbeans.main.Assets;
+import buttley.nyc.esteban.magicbeans.main.GraphicPlacer;
 import buttley.nyc.esteban.magicbeans.main.SoundNames;
+import buttley.nyc.esteban.magicbeans.model.characters.beans.Bean;
 
 /**
  * Created by Spoooon on 1/18/2015.
@@ -14,7 +17,18 @@ public class Buttley extends GameCharacter {
     int mStartingXcoordinate;
     int mStartingYcoordinate;
 
+    int mCurrentXcoordinate;
+    int mCurrentYCoordinate;
+
+    int mTrayTop;
+    int mTrayBottom;
+    int mTrayLeft;
+    int mTrayRight;
+    int mTrayMidX;
+    int mTrayMidY;
+
     int characterSound;
+
 
 
     public Buttley(){
@@ -31,6 +45,7 @@ public class Buttley extends GameCharacter {
 
     public void setmStartingXcoordinate(int mStartingXcoordinate) {
         this.mStartingXcoordinate = mStartingXcoordinate;
+        mCurrentXcoordinate = mStartingXcoordinate;
     }
 
     public int getmStartingYcoordinate() {
@@ -39,6 +54,7 @@ public class Buttley extends GameCharacter {
 
     public void setmStartingYcoordinate(int mStartingYcoordinate) {
         this.mStartingYcoordinate = mStartingYcoordinate;
+        mCurrentYCoordinate = mStartingYcoordinate;
     }
 
     @Override
@@ -53,11 +69,39 @@ public class Buttley extends GameCharacter {
 
     }
 
+    public void holdItem(Bean bean){
+        Sprite sprite = bean.getmSprite();
+        int beanHeight = sprite.getmFrameHeight();
+
+
+    }
+
+    public void holdItem(Sprite sprite){
+
+    }
+
+    public void holdItem(Bitmap bitmap){
+
+    }
+
+    public void tossItem(){
+
+    }
+
     @Override
     public void playSound() {
         Assets.sSoundPool.play(characterSound,1,1,1,0,1);
         if(LoggerConfig.ON){
             Log.v(LoggerConfig.LOG_TAG, "buttley sound played");
         }
+    }
+
+    private void setTrayCoordinates(){
+        mTrayBottom = (int) ((mSnapshotHeight * .75) + mCurrentYCoordinate);
+        mTrayTop = (int) ((mSnapshotHeight * .60) + mCurrentYCoordinate);
+        mTrayLeft = (int) ((mSnapshotWidth * .25) + mCurrentXcoordinate);
+        mTrayRight = mCurrentXcoordinate + mSnapshotWidth;
+        mTrayMidX = (int)((mTrayRight - mTrayLeft)/2 + mCurrentXcoordinate);
+        mTrayMidY = (int)(mTrayBottom - mTrayTop)/2 + mCurrentYCoordinate;
     }
 }

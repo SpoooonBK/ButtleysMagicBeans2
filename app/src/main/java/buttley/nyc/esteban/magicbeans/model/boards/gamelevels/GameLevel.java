@@ -25,27 +25,10 @@ public class GameLevel extends Board {
     private GameMode mMode;
     private boolean mIsInitializing = true;
 
-    private PoopMeterWidget mPoopMeter;
-    private BeanStageWidget mBeanStage;
-    private ButtleyStageWidget mButtleyStage;
-    private PowerUpBarWidget mPowerUpBar;
-    private ScoreBoardWidget mScoreBoard;
-    private BackgroundWidget mBackground;
-    private PatientStageWidget mPatientStage;
-
-
     public GameLevel(WidgetPool widgetPool) {
         super(widgetPool);
         mBoardType = BoardTypeEnum.GAME_LEVEL;
-
-        mPoopMeter = (PoopMeterWidget)widgetPool.getBoardWidget(WidgetTypeEnum.POOP_METER);
-        mBackground = (BackgroundWidget)widgetPool.getBoardWidget(WidgetTypeEnum.BACKGROUND);
-        mBeanStage = (BeanStageWidget)widgetPool.getBoardWidget(WidgetTypeEnum.BEAN_STAGE);
-        mPowerUpBar = (PowerUpBarWidget)widgetPool.getBoardWidget(WidgetTypeEnum.POWER_UP_BAR);
-        mPatientStage = (PatientStageWidget)widgetPool.getBoardWidget(WidgetTypeEnum.PATIENT_STAGE);
-        mButtleyStage = (ButtleyStageWidget)widgetPool.getBoardWidget(WidgetTypeEnum.BUTTLEY_STAGE);
-        mScoreBoard = (ScoreBoardWidget)widgetPool.getBoardWidget(WidgetTypeEnum.SCORE_BOARD);
-
+        addAllWidgets();
         setLevel();
         setMode();
         setPoopMeterLevel();
@@ -53,8 +36,14 @@ public class GameLevel extends Board {
     }
 
     @Override
-    public void placeWidgets() {
-
+    public void addAllWidgets() {
+        mWidgetList.add((BackgroundWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.BACKGROUND));
+        mWidgetList.add((PoopMeterWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.POOP_METER));
+        mWidgetList.add((PatientStageWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.PATIENT_STAGE));
+        mWidgetList.add((ButtleyStageWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.BUTTLEY_STAGE));
+        mWidgetList.add((PowerUpBarWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.POWER_UP_BAR));
+        mWidgetList.add((ScoreBoardWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.SCORE_BOARD));
+        mWidgetList.add((BeanStageWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.BEAN_STAGE));
 
     }
 
@@ -73,11 +62,12 @@ public class GameLevel extends Board {
     }
 
     public void setPoopMeterLevel(){
+        PoopMeterWidget poopMeter = (PoopMeterWidget)mWidgetList.get(1);
         int poopLevel = (25 + (mLevel * 5));
         if(poopLevel < 100){
-            mPoopMeter.setmStartingPoopLevel(poopLevel);
+            poopMeter.setmStartingPoopLevel(poopLevel);
         }else {
-            mPoopMeter.setmStartingPoopLevel(99);
+            poopMeter.setmStartingPoopLevel(99);
         }
     }
 
@@ -85,17 +75,6 @@ public class GameLevel extends Board {
         mMode = GameMode.STANDARD;
     }
 
-
-    @Override
-    public void draw(Canvas canvas) {
-        mBackground.draw(canvas);
-        mPoopMeter.draw(canvas);
-        mPatientStage.draw(canvas);
-        mButtleyStage.draw(canvas);
-        mPowerUpBar.draw(canvas);
-        mScoreBoard.draw(canvas);
-        mBeanStage.draw(canvas);
-    }
 
     public enum GameMode {
         STANDARD, IRONBUTT, BLACKOUT;

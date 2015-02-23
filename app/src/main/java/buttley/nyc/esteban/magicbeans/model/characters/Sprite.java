@@ -41,6 +41,14 @@ public class Sprite {
         mSourceRect = new Rect(0,0, mFrameWidth, mFrameHeight);
     }
 
+    public int getmFrameWidth() {
+        return mFrameWidth;
+    }
+
+    public int getmFrameHeight() {
+        return mFrameHeight;
+    }
+
     public void update(long gameTime) {
         if (gameTime > mFrameTicker + mFramePeriod) {
             mFrameTicker = gameTime;

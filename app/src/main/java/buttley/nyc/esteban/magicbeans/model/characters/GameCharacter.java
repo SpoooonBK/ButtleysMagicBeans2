@@ -39,6 +39,18 @@ public abstract class GameCharacter {
         mSnapshotWidth = mSnapshot.getWidth();
     }
 
+    public int getmSnapshotHeight() {
+        return mSnapshotHeight;
+    }
+
+    public Sprite getmSprite() {
+        return mSprite;
+    }
+
+    public int getmSnapshotWidth() {
+        return mSnapshotWidth;
+    }
+
     public List<AnimationDrawable> getmAnimationsList() {
         return mAnimationsList;
     }

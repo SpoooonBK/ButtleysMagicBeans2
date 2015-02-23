@@ -45,7 +45,7 @@ public class TitleWidget extends BoardWidget {
     }
 
     @Override
-    public void setStartingCoordinates(int X, int Y) {
+    public void setStartingCoordinates(int x, int y) {
 
     }
 

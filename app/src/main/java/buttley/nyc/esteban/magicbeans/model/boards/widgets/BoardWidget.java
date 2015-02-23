@@ -39,6 +39,6 @@ public abstract class BoardWidget{
     public abstract void draw(Canvas canvas);
 
     public abstract void setStartingCoordinates();
-    public abstract void setStartingCoordinates(int X, int Y);
+    public abstract void setStartingCoordinates(int x, int y);
     public abstract void setWidgetType();
 }

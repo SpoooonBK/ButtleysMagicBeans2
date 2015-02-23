@@ -21,6 +21,9 @@ public class ButtleyStageWidget extends BoardWidget implements CharacterStage {
        placeWidget(buttley.getmSnapshot());
     }
 
+    public Buttley getButtley() {
+        return buttley;
+    }
 
     @Override
     public void placeWidget(Bitmap bitmap) {
@@ -29,8 +32,7 @@ public class ButtleyStageWidget extends BoardWidget implements CharacterStage {
 
         mYCoordinate = GraphicPlacer.getsScreenHeight() - buttleyHeight;
         mXCoordinate = (int) GraphicPlacer.sScreenWidth/5;
-        buttley.setmStartingXcoordinate(mXCoordinate);
-        buttley.setmStartingYcoordinate(mYCoordinate);
+
     }
 
     @Override
@@ -45,8 +47,9 @@ public class ButtleyStageWidget extends BoardWidget implements CharacterStage {
     }
 
     @Override
-    public void setStartingCoordinates(int X, int Y) {
-
+    public void setStartingCoordinates(int x, int y) {
+        buttley.setmStartingXcoordinate(x);
+        buttley.setmStartingYcoordinate(y);
     }
 
     @Override

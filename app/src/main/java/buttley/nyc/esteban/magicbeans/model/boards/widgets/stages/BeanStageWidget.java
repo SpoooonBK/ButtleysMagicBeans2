@@ -59,7 +59,7 @@ public class BeanStageWidget extends BoardWidget implements CharacterStage {
     }
 
     @Override
-    public void setStartingCoordinates(int X, int Y) {
+    public void setStartingCoordinates(int x, int y) {
 
     }
 

@@ -15,7 +15,7 @@ public class SoundBoard extends Board {
     }
 
     @Override
-    public void placeWidgets() {
+    public void addAllWidgets() {
 
     }
 

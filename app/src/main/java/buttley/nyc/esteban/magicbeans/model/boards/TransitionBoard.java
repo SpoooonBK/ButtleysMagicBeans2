@@ -14,7 +14,7 @@ public class TransitionBoard extends Board {
     }
 
     @Override
-    public void placeWidgets() {
+    public void addAllWidgets() {
 
     }
 
