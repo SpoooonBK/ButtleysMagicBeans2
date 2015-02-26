@@ -36,6 +36,13 @@ public class Buttley extends GameCharacter {
         characterSound = Assets.getsSoundMap().get(SoundNames.FART_1);
         setmCharacterType(CharacterType.BUTTLEY);
 
+        mTrayBottom = (int) (mSnapshotHeight * .75);
+        mTrayTop = (int) (mSnapshotHeight * .60);
+        mTrayLeft = (int) (mSnapshotWidth * .25);
+        mTrayRight = mSnapshotWidth;
+        mTrayMidX = (int)(mTrayRight - mTrayLeft)/2;
+        mTrayMidY = (int)(mTrayBottom - mTrayTop)/2;
+
     }
 
 
@@ -97,11 +104,6 @@ public class Buttley extends GameCharacter {
     }
 
     private void setTrayCoordinates(){
-        mTrayBottom = (int) ((mSnapshotHeight * .75) + mCurrentYCoordinate);
-        mTrayTop = (int) ((mSnapshotHeight * .60) + mCurrentYCoordinate);
-        mTrayLeft = (int) ((mSnapshotWidth * .25) + mCurrentXcoordinate);
-        mTrayRight = mCurrentXcoordinate + mSnapshotWidth;
-        mTrayMidX = (int)((mTrayRight - mTrayLeft)/2 + mCurrentXcoordinate);
-        mTrayMidY = (int)(mTrayBottom - mTrayTop)/2 + mCurrentYCoordinate;
+
     }
 }
