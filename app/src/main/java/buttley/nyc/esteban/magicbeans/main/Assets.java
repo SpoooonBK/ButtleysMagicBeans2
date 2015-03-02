@@ -11,6 +11,7 @@ import java.util.Map;
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.BackgroundWidget;
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.WidgetTypeEnum;
 import buttley.nyc.esteban.magicbeans.model.characters.CharacterNamesEnum;
+import buttley.nyc.esteban.magicbeans.model.characters.Sprite;
 
 /**
  * Created by Spoooon on 1/23/2015.
@@ -19,8 +20,9 @@ public class Assets {
 
     public static Map<WidgetTypeEnum, List<Bitmap>> sWidgetBitmaps;
     public static Map<CharacterNamesEnum, Bitmap> sCharacterBitmaps;
-    public static Map<SoundNames, Integer> sSoundMap;
+    public static Map<SoundNamesEnum, Integer> sSoundMap;
     public static Map<BackgroundWidget.BackgroundNames, Bitmap> sBackgroundBitmaps;
+    public static Map<CharacterNamesEnum, Sprite> sSpriteMap;
     public static AudioManager sAudioManager;
     public static SoundPool sSoundPool;
 
@@ -46,6 +48,8 @@ public class Assets {
 
     }
 
+
+
     public static Map<WidgetTypeEnum, List<Bitmap>> getsWidgetBitmaps() {
         return sWidgetBitmaps;
     }
@@ -62,11 +66,11 @@ public class Assets {
         Assets.sCharacterBitmaps = sCharacterBitmaps;
     }
 
-    public static Map<SoundNames, Integer> getsSoundMap() {
+    public static Map<SoundNamesEnum, Integer> getsSoundMap() {
         return sSoundMap;
     }
 
-    public static void setsSoundMap(Map<SoundNames, Integer> sSoundMap) {
+    public static void setsSoundMap(Map<SoundNamesEnum, Integer> sSoundMap) {
         Assets.sSoundMap = sSoundMap;
     }
 
@@ -94,7 +98,7 @@ public class Assets {
         Assets.sSoundPool = sSoundPool;
     }
 
-    public static void loadSounds(AudioManager audioManager, SoundPool soundPool, Map<SoundNames, Integer> soundMap) {
+    public static void loadSounds(AudioManager audioManager, SoundPool soundPool, Map<SoundNamesEnum, Integer> soundMap) {
         setsAudioManager(audioManager);
         setsSoundPool(soundPool);
         setsSoundMap(soundMap);
@@ -102,5 +106,9 @@ public class Assets {
 
     public static Bitmap getBitmap(CharacterNamesEnum characterName){
         return sCharacterBitmaps.get(characterName);
+    }
+
+    public static Sprite getSprite(CharacterNamesEnum characterName){
+        return sSpriteMap.get(characterName);
     }
 }

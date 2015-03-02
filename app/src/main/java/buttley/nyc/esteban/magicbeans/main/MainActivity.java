@@ -78,8 +78,8 @@ public class MainActivity extends Activity {
 
     public void loadSounds(){
 
-        Map<SoundNames, Integer> soundMap =
-                new HashMap<SoundNames, Integer>();
+        Map<SoundNamesEnum, Integer> soundMap =
+                new HashMap<SoundNamesEnum, Integer>();
 
         audioManager = (AudioManager)getSystemService(AUDIO_SERVICE);
         soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
@@ -92,11 +92,11 @@ public class MainActivity extends Activity {
         });
 
 
-        soundMap.put(SoundNames.FART_1, soundPool.load(this, R.raw.sound1, 1));
-        soundMap.put(SoundNames.FART_2, soundPool.load(this, R.raw.sound2, 1));
-        soundMap.put(SoundNames.FART_3, soundPool.load(this, R.raw.sound3, 1));
+        soundMap.put(SoundNamesEnum.FART_1, soundPool.load(this, R.raw.sound1, 1));
+        soundMap.put(SoundNamesEnum.FART_2, soundPool.load(this, R.raw.sound2, 1));
+        soundMap.put(SoundNamesEnum.FART_3, soundPool.load(this, R.raw.sound3, 1));
         soundMap.put(
-                SoundNames.FART_4, soundPool.load(this, R.raw.sound4, 1));
+                SoundNamesEnum.FART_4, soundPool.load(this, R.raw.sound4, 1));
 
 //Todo find out if I need to reference audioManager in Assets
         Assets.loadSounds(audioManager, soundPool, soundMap);

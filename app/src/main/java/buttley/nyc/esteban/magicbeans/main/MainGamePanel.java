@@ -11,7 +11,6 @@ import android.view.SurfaceView;
 import buttley.nyc.esteban.magicbeans.controller.GameController;
 import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
 import buttley.nyc.esteban.magicbeans.model.boards.Board;
-import buttley.nyc.esteban.magicbeans.model.boards.BoardTypeEnum;
 
 /**
  * Created by Spoooon on 1/23/2015.
@@ -97,7 +96,7 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
                 if (LoggerConfig.ON) {
 
                 }
-                int fart1 = Assets.getsSoundMap().get(SoundNames.FART_1);
+                int fart1 = Assets.getsSoundMap().get(SoundNamesEnum.FART_1);
                 Assets.sSoundPool.play(fart1,1,1,1,0,1);
             }
 
@@ -107,7 +106,7 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
                     Log.v(LoggerConfig.LOG_TAG, "swipe left");
 
                 }
-                int fart2 = Assets.getsSoundMap().get(SoundNames.FART_2);
+                int fart2 = Assets.getsSoundMap().get(SoundNamesEnum.FART_2);
                 Assets.sSoundPool.play(fart2,1,1,1,0,1);
             }
 
@@ -117,7 +116,7 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
                     Log.v(LoggerConfig.LOG_TAG, "swipe up");
 
                 }
-                int fart3 = Assets.getsSoundMap().get(SoundNames.FART_3);
+                int fart3 = Assets.getsSoundMap().get(SoundNamesEnum.FART_3);
                 Assets.sSoundPool.play(fart3,1,1,1,0,1);
             }
 
@@ -126,7 +125,7 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
                 if (LoggerConfig.ON) {
 
                 }
-                int fart4 = Assets.getsSoundMap().get(SoundNames.FART_4);
+                int fart4 = Assets.getsSoundMap().get(SoundNamesEnum.FART_4);
                 Assets.sSoundPool.play(fart4,1,1,1,0,1);
             }
         });

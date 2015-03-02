@@ -6,8 +6,7 @@ import android.util.Log;
 
 import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
 import buttley.nyc.esteban.magicbeans.main.Assets;
-import buttley.nyc.esteban.magicbeans.main.GraphicPlacer;
-import buttley.nyc.esteban.magicbeans.main.SoundNames;
+import buttley.nyc.esteban.magicbeans.main.SoundNamesEnum;
 import buttley.nyc.esteban.magicbeans.model.characters.beans.Bean;
 
 /**
@@ -33,7 +32,7 @@ public class Buttley extends GameCharacter {
 
     public Buttley(){
         setmSnapshot(Assets.sCharacterBitmaps.get(CharacterNamesEnum.BUTTLEY));
-        characterSound = Assets.getsSoundMap().get(SoundNames.FART_1);
+        characterSound = Assets.getsSoundMap().get(SoundNamesEnum.FART_1);
         setmCharacterType(CharacterType.BUTTLEY);
 
         mTrayBottom = (int) (mSnapshotHeight * .75);

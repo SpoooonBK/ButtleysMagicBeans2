@@ -1,6 +1,7 @@
 package buttley.nyc.esteban.magicbeans.model.characters;
 
 
+import buttley.nyc.esteban.magicbeans.main.SoundNamesEnum;
 
 /**
  * Created by Tara on 1/8/2015.
@@ -35,6 +36,7 @@ public enum CharacterNamesEnum {
 
     private String xmlName;
     private CharacterType characterType;
+    private SoundNamesEnum soundName;
 
     private CharacterNamesEnum(String xmlName, CharacterType characterType){
         this.xmlName = xmlName;
