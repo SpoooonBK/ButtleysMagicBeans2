@@ -15,4 +15,11 @@ public class GameCharacterComponent extends Component{
         mCharacterType = characterType;
     }
 
+    public CharacterNamesEnum getName() {
+        return mName;
+    }
+
+    public CharacterType getCharacterType() {
+        return mCharacterType;
+    }
 }

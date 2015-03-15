@@ -10,9 +10,9 @@ import buttley.nyc.esteban.magicbeans.model.characters.CharacterType;
  */
 public class Entity {
     int id;
-    Map<CharacterType, Component> mComponentList;
+    Map<ComponentType, Component> mComponentList;
 
-    public Entity(Map<?,?> componentMap) {
+    public Entity(Map<ComponentType,Component> componentMap) {
         this.mComponentList = mComponentList;
     }
 }

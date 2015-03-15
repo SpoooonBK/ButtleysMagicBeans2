@@ -7,6 +7,7 @@ public class HoldEntityComponent extends Component{
     Entity mEntity;
 
     public void holdEntity(Entity entity){
+        mEntity = entity;
 
     }
 }

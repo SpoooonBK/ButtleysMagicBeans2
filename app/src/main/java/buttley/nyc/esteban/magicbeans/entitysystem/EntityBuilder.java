@@ -14,7 +14,7 @@ import buttley.nyc.esteban.magicbeans.model.sounds.SoundMapBuilder;
  */
 public class EntityBuilder {
 
-    public Entity buildEntity(CharacterNamesEnum characterName){
+    public static Entity buildEntity(CharacterNamesEnum characterName){
         Map<ComponentType, Component> componentMap =
                 new EnumMap<ComponentType, Component>(ComponentType.class);
 
