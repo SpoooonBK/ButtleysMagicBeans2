@@ -4,7 +4,8 @@ import android.graphics.Canvas;
 
 import java.util.List;
 
-import buttley.nyc.esteban.magicbeans.model.boards.widgets.BoardWidget;
+import buttley.nyc.esteban.magicbeans.entitysystem.Entity;
+import buttley.nyc.esteban.magicbeans.main.Renderer;
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.WidgetPool;
 
 /**
@@ -14,7 +15,7 @@ public abstract class Board {
 
     protected BoardTypeEnum mBoardType;
     protected WidgetPool mWidgetPool;
-    protected List<BoardWidget> mWidgetList;
+    protected List<Entity> mEntityList;
 
     public Board(WidgetPool widgetPool){
         mWidgetPool = widgetPool;
@@ -24,8 +25,8 @@ public abstract class Board {
         return mBoardType;
     }
 
-    public List<BoardWidget> getmWidgetList() {
-        return mWidgetList;
+    public List<Entity> getmEntityList() {
+        return mEntityList;
     }
 
     public void setmBoardType(BoardTypeEnum mBoardType) {
@@ -35,8 +36,8 @@ public abstract class Board {
     public abstract void addAllWidgets();
 
     public void draw(Canvas canvas){
-        for(BoardWidget widget:mWidgetList){
-            widget.draw(canvas);
+        for(Entity entity: mEntityList){
+            Renderer.render(entity);
         }
     };
 

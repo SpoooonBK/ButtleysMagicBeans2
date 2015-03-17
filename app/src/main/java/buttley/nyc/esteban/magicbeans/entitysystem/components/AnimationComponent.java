@@ -1,4 +1,4 @@
-package buttley.nyc.esteban.magicbeans.entitysystem;
+package buttley.nyc.esteban.magicbeans.entitysystem.components;
 
 import android.graphics.Canvas;
 

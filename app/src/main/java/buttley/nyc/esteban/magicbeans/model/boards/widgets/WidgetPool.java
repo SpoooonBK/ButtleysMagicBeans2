@@ -5,43 +5,34 @@ import android.util.Log;
 import java.util.EnumMap;
 import java.util.Map;
 
+import buttley.nyc.esteban.magicbeans.entitysystem.Entity;
+import buttley.nyc.esteban.magicbeans.entitysystem.EntityFactory;
 import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
-import buttley.nyc.esteban.magicbeans.model.boards.widgets.stages.BeanStageWidget;
-import buttley.nyc.esteban.magicbeans.model.boards.widgets.stages.ButtleyStageWidget;
-import buttley.nyc.esteban.magicbeans.model.boards.widgets.stages.PatientStageWidget;
-import buttley.nyc.esteban.magicbeans.model.characters.CharacterPool;
 
 /**
  * Created by Tara on 1/31/2015.
  */
 public class WidgetPool {
-    Map<WidgetTypeEnum, BoardWidget> mWidgetMap;
+    private Map<WidgetTypeEnum, Entity> mWidgetMap;
+    private EntityFactory entityFactory;
 
-    public WidgetPool(CharacterPool characterPool) {
-        mWidgetMap = new EnumMap<WidgetTypeEnum, BoardWidget>(WidgetTypeEnum.class);
-        loadAllWidgets(characterPool);
+    public WidgetPool() {
+        mWidgetMap = new EnumMap<WidgetTypeEnum, Entity>(WidgetTypeEnum.class);
+        entityFactory = new EntityFactory();
+        loadAllWidgets();
         if(LoggerConfig.ON){
             Log.v(LoggerConfig.LOG_TAG, "Widget Pool created");
         }
     }
 
-    private void loadAllWidgets(CharacterPool characterPool) {
-        mWidgetMap.put(WidgetTypeEnum.BACKGROUND, new BackgroundWidget());
-        mWidgetMap.put(WidgetTypeEnum.TITLE, new TitleWidget());
-        mWidgetMap.put(WidgetTypeEnum.BEAN_STAGE, new BeanStageWidget(characterPool));
-        mWidgetMap.put(WidgetTypeEnum.POOP_METER, new PoopMeterWidget());
-        mWidgetMap.put(WidgetTypeEnum.POWER_UP_BAR, new PowerUpBarWidget());
-        mWidgetMap.put(WidgetTypeEnum.PATIENT_STAGE, new PatientStageWidget(characterPool));
-        mWidgetMap.put(WidgetTypeEnum.BUTTLEY_STAGE, new ButtleyStageWidget());
-        mWidgetMap.put(WidgetTypeEnum.SCORE_BOARD, new ScoreBoardWidget());
+    private void loadAllWidgets() {
+        for(WidgetTypeEnum widgetType: WidgetTypeEnum.values()) {
+            mWidgetMap.put(widgetType, entityFactory.getEntity(widgetType));
+        }
     }
 
-    public BoardWidget getBoardWidget(WidgetTypeEnum widgetType){
+    public Entity getWidget(WidgetTypeEnum widgetType){
         return mWidgetMap.get(widgetType);
-    }
-
-    public void setBoardWidget(WidgetTypeEnum widgetType, BoardWidget widget){
-        mWidgetMap.put(widgetType, widget);
     }
 
 }

@@ -1,4 +1,6 @@
-package buttley.nyc.esteban.magicbeans.entitysystem;
+package buttley.nyc.esteban.magicbeans.entitysystem.components;
+
+import buttley.nyc.esteban.magicbeans.entitysystem.components.Component;
 
 /**
  * Created by Tara on 3/15/2015.
@@ -43,4 +45,6 @@ public class PositionComponent extends Component {
     public void setmCurrentYCoordinate(int mCurrentYCoordinate) {
         this.mCurrentYCoordinate = mCurrentYCoordinate;
     }
+
+
 }

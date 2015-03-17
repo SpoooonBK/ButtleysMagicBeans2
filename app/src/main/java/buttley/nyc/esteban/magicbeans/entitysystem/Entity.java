@@ -1,9 +1,9 @@
 package buttley.nyc.esteban.magicbeans.entitysystem;
 
-import java.util.List;
 import java.util.Map;
 
-import buttley.nyc.esteban.magicbeans.model.characters.CharacterType;
+import buttley.nyc.esteban.magicbeans.entitysystem.components.Component;
+import buttley.nyc.esteban.magicbeans.entitysystem.components.ComponentType;
 
 /**
  * Created by Tara on 3/1/2015.

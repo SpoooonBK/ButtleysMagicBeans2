@@ -1,5 +1,6 @@
-package buttley.nyc.esteban.magicbeans.entitysystem;
+package buttley.nyc.esteban.magicbeans.entitysystem.components;
 
+import buttley.nyc.esteban.magicbeans.entitysystem.components.Component;
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.WidgetTypeEnum;
 
 /**

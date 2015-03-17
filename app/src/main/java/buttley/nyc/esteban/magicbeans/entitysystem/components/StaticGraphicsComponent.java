@@ -1,8 +1,8 @@
-package buttley.nyc.esteban.magicbeans.entitysystem;
+package buttley.nyc.esteban.magicbeans.entitysystem.components;
 
 import android.graphics.Bitmap;
 
-import buttley.nyc.esteban.magicbeans.model.characters.Sprite;
+import buttley.nyc.esteban.magicbeans.entitysystem.components.Component;
 
 /**
  * Created by Tara on 3/1/2015.

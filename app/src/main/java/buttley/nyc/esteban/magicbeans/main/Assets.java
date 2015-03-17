@@ -4,11 +4,10 @@ import android.graphics.Bitmap;
 import android.media.AudioManager;
 import android.media.SoundPool;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.EnumMap;
 import java.util.Map;
 
-import buttley.nyc.esteban.magicbeans.model.boards.widgets.BackgroundWidget;
+import buttley.nyc.esteban.magicbeans.model.boards.BackgroundNames;
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.WidgetTypeEnum;
 import buttley.nyc.esteban.magicbeans.model.characters.CharacterNamesEnum;
 import buttley.nyc.esteban.magicbeans.model.characters.Sprite;
@@ -18,52 +17,76 @@ import buttley.nyc.esteban.magicbeans.model.characters.Sprite;
  */
 public class Assets {
 
-    public static Map<WidgetTypeEnum, List<Bitmap>> sWidgetBitmaps;
+    public static Map<WidgetTypeEnum, Bitmap> sWidgetBitmaps;
+    private static Map<WidgetTypeEnum, Sprite> sWidgetSprites;
+
     public static Map<CharacterNamesEnum, Bitmap> sCharacterBitmaps;
+    public static Map<CharacterNamesEnum, Sprite> sCharacterSpriteMap;
+
+    public static Map<BackgroundNames, Bitmap> sBackgroundBitmaps;
+
     public static Map<SoundNamesEnum, Integer> sSoundMap;
-    public static Map<BackgroundWidget.BackgroundNames, Bitmap> sBackgroundBitmaps;
-    public static Map<CharacterNamesEnum, Sprite> sSpriteMap;
     public static AudioManager sAudioManager;
     public static SoundPool sSoundPool;
 
+
     public Assets() {
-        sWidgetBitmaps = new HashMap<WidgetTypeEnum, List<Bitmap>>();
-        sCharacterBitmaps = new HashMap<CharacterNamesEnum, Bitmap>();
-        sBackgroundBitmaps = new HashMap<BackgroundWidget.BackgroundNames, Bitmap>();
+        sWidgetBitmaps = new EnumMap<WidgetTypeEnum, Bitmap>(WidgetTypeEnum.class);
+        sWidgetSprites = new EnumMap<WidgetTypeEnum, Sprite>(WidgetTypeEnum.class);
+
+        sCharacterBitmaps = new EnumMap<CharacterNamesEnum, Bitmap>(CharacterNamesEnum.class);
+        sCharacterSpriteMap = new EnumMap<CharacterNamesEnum, Sprite>(CharacterNamesEnum.class);
+
+        sBackgroundBitmaps = new EnumMap<BackgroundNames, Bitmap>(BackgroundNames.class);
 
     }
-
+    //Asset Loading Methods
     public static void loadAsset(CharacterNamesEnum name, Bitmap bitmap) {
         sCharacterBitmaps.put(name, bitmap);
     }
 
-    public static void loadAsset(WidgetTypeEnum widgetType, List<Bitmap> bitmaps) {
-        sWidgetBitmaps.put(widgetType, bitmaps);
+    public static void loadAsset(WidgetTypeEnum widgetType, Bitmap bitmap) {
+        sWidgetBitmaps.put(widgetType, bitmap);
     }
 
-    public static void loadAsset(
-            BackgroundWidget.BackgroundNames backgroundName,
-            Bitmap backgroundBitmap) {
+    public static void loadAsset(CharacterNamesEnum name, Sprite sprite){
+        sCharacterSpriteMap.put(name, sprite);
+    }
+
+    public static void loadAsset(WidgetTypeEnum widgetType, Sprite sprite){
+        sWidgetSprites.put(widgetType, sprite);
+    }
+
+    public static void loadAsset(BackgroundNames backgroundName,Bitmap backgroundBitmap) {
         sBackgroundBitmaps.put(backgroundName,backgroundBitmap);
+    }
 
+    //Asset Retrieval Methods
+    public static Bitmap getBitmap(CharacterNamesEnum characterName){
+        return sCharacterBitmaps.get(characterName);
+    }
+
+    public static Bitmap getBitmap(WidgetTypeEnum widgetType){
+        return sWidgetBitmaps.get(widgetType);
+    }
+
+    public static Bitmap getBitmap(BackgroundNames backgroundName){
+        return sBackgroundBitmaps.get(backgroundName);
+    }
+
+
+    public static Sprite getSprite(CharacterNamesEnum characterName){
+        return sCharacterSpriteMap.get(characterName);
     }
 
 
 
-    public static Map<WidgetTypeEnum, List<Bitmap>> getsWidgetBitmaps() {
+    public static Map<WidgetTypeEnum, Bitmap> getWidgetBitmaps() {
         return sWidgetBitmaps;
     }
 
-    public static void setsWidgetBitmaps(Map<WidgetTypeEnum, List<Bitmap>> sWidgetBitmaps) {
-        Assets.sWidgetBitmaps = sWidgetBitmaps;
-    }
-
-    public static Map<CharacterNamesEnum, Bitmap> getsCharacterBitmaps() {
+    public static Map<CharacterNamesEnum, Bitmap> getCharacterBitmaps() {
         return sCharacterBitmaps;
-    }
-
-    public static void setsCharacterBitmaps(Map<CharacterNamesEnum, Bitmap> sCharacterBitmaps) {
-        Assets.sCharacterBitmaps = sCharacterBitmaps;
     }
 
     public static Map<SoundNamesEnum, Integer> getsSoundMap() {
@@ -74,15 +97,11 @@ public class Assets {
         Assets.sSoundMap = sSoundMap;
     }
 
-    public static Map<BackgroundWidget.BackgroundNames, Bitmap> getsBackgroundBitmaps() {
+    public static Map<BackgroundNames, Bitmap> getBackgroundBitmaps() {
         return sBackgroundBitmaps;
     }
 
-    public static void setsBackgroundBitmaps(Map<BackgroundWidget.BackgroundNames, Bitmap> sBackgroundBitmaps) {
-        Assets.sBackgroundBitmaps = sBackgroundBitmaps;
-    }
-
-    public static AudioManager getsAudioManager() {
+    public static AudioManager getAudioManager() {
         return sAudioManager;
     }
 
@@ -90,7 +109,7 @@ public class Assets {
         Assets.sAudioManager = sAudioManager;
     }
 
-    public static SoundPool     getsSoundPool() {
+    public static SoundPool     getSoundPool() {
         return sSoundPool;
     }
 
@@ -104,11 +123,5 @@ public class Assets {
         setsSoundMap(soundMap);
     }
 
-    public static Bitmap getBitmap(CharacterNamesEnum characterName){
-        return sCharacterBitmaps.get(characterName);
-    }
 
-    public static Sprite getSprite(CharacterNamesEnum characterName){
-        return sSpriteMap.get(characterName);
-    }
 }

@@ -1,48 +1,47 @@
 package buttley.nyc.esteban.magicbeans.model.characters;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.util.Log;
 
+import buttley.nyc.esteban.magicbeans.entitysystem.components.Component;
 import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
 import buttley.nyc.esteban.magicbeans.main.Assets;
 import buttley.nyc.esteban.magicbeans.main.SoundNamesEnum;
-import buttley.nyc.esteban.magicbeans.model.characters.beans.Bean;
+
 
 /**
  * Created by Spoooon on 1/18/2015.
  */
-public class Buttley extends GameCharacter {
+public class Buttley extends Component {
     int mStartingXcoordinate;
     int mStartingYcoordinate;
 
     int mCurrentXcoordinate;
     int mCurrentYCoordinate;
 
-    int mTrayTop;
-    int mTrayBottom;
-    int mTrayLeft;
-    int mTrayRight;
-    int mTrayMidX;
-    int mTrayMidY;
+    private int mTrayTop;
+    private int mTrayBottom;
+    private int mTrayLeft;
+    private int mTrayRight;
+    private int mTrayMidX;
+    private int mTrayMidY;
 
     int characterSound;
 
 
 
-    public Buttley(){
-        setmSnapshot(Assets.sCharacterBitmaps.get(CharacterNamesEnum.BUTTLEY));
-        characterSound = Assets.getsSoundMap().get(SoundNamesEnum.FART_1);
-        setmCharacterType(CharacterType.BUTTLEY);
-
-        mTrayBottom = (int) (mSnapshotHeight * .75);
-        mTrayTop = (int) (mSnapshotHeight * .60);
-        mTrayLeft = (int) (mSnapshotWidth * .25);
-        mTrayRight = mSnapshotWidth;
-        mTrayMidX = (int)(mTrayRight - mTrayLeft)/2;
-        mTrayMidY = (int)(mTrayBottom - mTrayTop)/2;
-
-    }
+//    public Buttley(){
+//        setmSnapshot(Assets.sCharacterBitmaps.get(CharacterNamesEnum.BUTTLEY));
+//        characterSound = Assets.getsSoundMap().get(SoundNamesEnum.FART_1);
+//        setmCharacterType(CharacterType.BUTTLEY);
+//
+//        mTrayBottom = (int) (mSnapshotHeight * .75);
+//        mTrayTop = (int) (mSnapshotHeight * .60);
+//        mTrayLeft = (int) (mSnapshotWidth * .25);
+//        mTrayRight = mSnapshotWidth;
+//        mTrayMidX = (int)(mTrayRight - mTrayLeft)/2;
+//        mTrayMidY = (int)(mTrayBottom - mTrayTop)/2;
+//
+//    }
 
 
     public int getmStartingXcoordinate() {
@@ -63,38 +62,6 @@ public class Buttley extends GameCharacter {
         mCurrentYCoordinate = mStartingYcoordinate;
     }
 
-    @Override
-    public void draw(Canvas canvas) {
-
-        canvas.drawBitmap(mSnapshot,mStartingXcoordinate,mStartingYcoordinate,null);
-
-    }
-
-    @Override
-    public void animate() {
-
-    }
-
-    public void holdItem(Bean bean){
-        Sprite sprite = bean.getmSprite();
-        int beanHeight = sprite.getmFrameHeight();
-
-
-    }
-
-    public void holdItem(Sprite sprite){
-
-    }
-
-    public void holdItem(Bitmap bitmap){
-
-    }
-
-    public void tossItem(){
-
-    }
-
-    @Override
     public void playSound() {
         Assets.sSoundPool.play(characterSound,1,1,1,0,1);
         if(LoggerConfig.ON){

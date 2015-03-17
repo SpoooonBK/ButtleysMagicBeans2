@@ -1,7 +1,5 @@
 package buttley.nyc.esteban.magicbeans.model.boards.gamelevels;
 
-import android.graphics.Canvas;
-
 import buttley.nyc.esteban.magicbeans.model.boards.Board;
 import buttley.nyc.esteban.magicbeans.model.boards.BoardTypeEnum;
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.BackgroundWidget;
@@ -37,13 +35,13 @@ public class GameLevel extends Board {
 
     @Override
     public void addAllWidgets() {
-        mWidgetList.add((BackgroundWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.BACKGROUND));
-        mWidgetList.add((PoopMeterWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.POOP_METER));
-        mWidgetList.add((PatientStageWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.PATIENT_STAGE));
-        mWidgetList.add((ButtleyStageWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.BUTTLEY_STAGE));
-        mWidgetList.add((PowerUpBarWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.POWER_UP_BAR));
-        mWidgetList.add((ScoreBoardWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.SCORE_BOARD));
-        mWidgetList.add((BeanStageWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.BEAN_STAGE));
+        mEntityList.add((BackgroundWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.BACKGROUND));
+        mEntityList.add((PoopMeterWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.POOP_METER));
+        mEntityList.add((PatientStageWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.PATIENT_STAGE));
+        mEntityList.add((ButtleyStageWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.BUTTLEY_STAGE));
+        mEntityList.add((PowerUpBarWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.POWER_UP_BAR));
+        mEntityList.add((ScoreBoardWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.SCORE_BOARD));
+        mEntityList.add((BeanStageWidget)mWidgetPool.getBoardWidget(WidgetTypeEnum.BEAN_STAGE));
 
     }
 
@@ -62,7 +60,7 @@ public class GameLevel extends Board {
     }
 
     public void setPoopMeterLevel(){
-        PoopMeterWidget poopMeter = (PoopMeterWidget)mWidgetList.get(1);
+        PoopMeterWidget poopMeter = (PoopMeterWidget) mEntityList.get(1);
         int poopLevel = (25 + (mLevel * 5));
         if(poopLevel < 100){
             poopMeter.setmStartingPoopLevel(poopLevel);

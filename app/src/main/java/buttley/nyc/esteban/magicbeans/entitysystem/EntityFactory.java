@@ -3,6 +3,16 @@ package buttley.nyc.esteban.magicbeans.entitysystem;
 import java.util.EnumMap;
 import java.util.Map;
 
+import buttley.nyc.esteban.magicbeans.entitysystem.components.AnimationComponent;
+import buttley.nyc.esteban.magicbeans.entitysystem.components.BackgroundComponent;
+import buttley.nyc.esteban.magicbeans.entitysystem.components.Component;
+import buttley.nyc.esteban.magicbeans.entitysystem.components.ComponentType;
+import buttley.nyc.esteban.magicbeans.entitysystem.components.GameCharacterComponent;
+import buttley.nyc.esteban.magicbeans.entitysystem.components.HoldEntityComponent;
+import buttley.nyc.esteban.magicbeans.entitysystem.components.PoopMeterComponent;
+import buttley.nyc.esteban.magicbeans.entitysystem.components.SoundComponent;
+import buttley.nyc.esteban.magicbeans.entitysystem.components.StaticGraphicsComponent;
+import buttley.nyc.esteban.magicbeans.entitysystem.components.WidgetComponent;
 import buttley.nyc.esteban.magicbeans.main.Assets;
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.WidgetTypeEnum;
 import buttley.nyc.esteban.magicbeans.model.characters.CharacterNamesEnum;
@@ -13,12 +23,17 @@ import buttley.nyc.esteban.magicbeans.model.sounds.SoundMapBuilder;
  */
 public class EntityFactory {
 
-    public static Entity getEntity(WidgetTypeEnum widgetType){
+    public Entity getEntity(WidgetTypeEnum widgetType){
         Map<ComponentType, Component> componentMap =
                 new EnumMap<ComponentType, Component>(ComponentType.class);
 
+        StaticGraphicsComponent staticGraphicsComponent =
+                new StaticGraphicsComponent(Assets.getBitmap(widgetType));
+
+
 
         componentMap.put(ComponentType.WIDGET, new WidgetComponent(widgetType));
+//        componentMap.put(ComponentType.STATIC_GRAPHICS, staticGraphicsComponent);
 
         switch (widgetType){
             case BACKGROUND:{
@@ -27,6 +42,7 @@ public class EntityFactory {
             }
 
             case POOP_METER:{
+                componentMap.put(ComponentType.POOP_METER, new PoopMeterComponent());
                 break;
             }
 
@@ -45,7 +61,7 @@ public class EntityFactory {
         return new Entity(componentMap);
     }
 
-    public static Entity getEntity(CharacterNamesEnum name){
+    public Entity getEntity(CharacterNamesEnum name){
         Map<ComponentType, Component> componentMap =
                 new EnumMap<ComponentType, Component>(ComponentType.class);
 

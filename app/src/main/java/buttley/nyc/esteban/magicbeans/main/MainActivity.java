@@ -108,7 +108,7 @@ public class MainActivity extends Activity {
     public void loadWidgetBitmaps(){
         List<Bitmap> titleList = new ArrayList<Bitmap>();
         titleList.add(BitmapFactory.decodeResource(getResources(), R.drawable.title_text));
-        Assets.getsWidgetBitmaps().put(WidgetTypeEnum.TITLE, titleList);
+        Assets.getWidgetBitmaps().put(WidgetTypeEnum.TITLE, titleList);
 
     }
 
