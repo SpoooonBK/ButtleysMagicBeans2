@@ -1,6 +1,5 @@
 package buttley.nyc.esteban.magicbeans.entitysystem.components;
 
-import buttley.nyc.esteban.magicbeans.entitysystem.components.Component;
 import buttley.nyc.esteban.magicbeans.model.characters.CharacterNamesEnum;
 import buttley.nyc.esteban.magicbeans.model.characters.CharacterType;
 

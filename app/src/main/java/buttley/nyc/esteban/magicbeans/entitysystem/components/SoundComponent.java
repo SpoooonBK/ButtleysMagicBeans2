@@ -2,7 +2,6 @@ package buttley.nyc.esteban.magicbeans.entitysystem.components;
 
 import java.util.List;
 
-import buttley.nyc.esteban.magicbeans.entitysystem.components.Component;
 import buttley.nyc.esteban.magicbeans.model.sounds.Sound;
 
 /**

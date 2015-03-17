@@ -19,7 +19,6 @@ import java.util.Map;
 
 import buttley.nyc.esteban.magicbeans.R;
 import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
-import buttley.nyc.esteban.magicbeans.model.boards.widgets.BackgroundWidget;
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.WidgetTypeEnum;
 import buttley.nyc.esteban.magicbeans.model.characters.CharacterNamesEnum;
 

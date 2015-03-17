@@ -1,7 +1,5 @@
 package buttley.nyc.esteban.magicbeans.entitysystem.components;
 
-import buttley.nyc.esteban.magicbeans.entitysystem.components.Component;
-
 /**
  * Created by Tara on 3/15/2015.
  */

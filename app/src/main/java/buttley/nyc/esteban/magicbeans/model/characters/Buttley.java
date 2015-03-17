@@ -5,7 +5,6 @@ import android.util.Log;
 import buttley.nyc.esteban.magicbeans.entitysystem.components.Component;
 import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
 import buttley.nyc.esteban.magicbeans.main.Assets;
-import buttley.nyc.esteban.magicbeans.main.SoundNamesEnum;
 
 
 /**

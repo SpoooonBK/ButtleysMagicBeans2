@@ -1,7 +1,5 @@
 package buttley.nyc.esteban.magicbeans.main;
 
-import android.graphics.Bitmap;
-
 import java.util.List;
 
 import buttley.nyc.esteban.magicbeans.entitysystem.Entity;
