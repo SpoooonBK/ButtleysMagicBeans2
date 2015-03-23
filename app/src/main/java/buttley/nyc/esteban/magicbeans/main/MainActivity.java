@@ -18,7 +18,9 @@ import java.util.List;
 import java.util.Map;
 
 import buttley.nyc.esteban.magicbeans.R;
+import buttley.nyc.esteban.magicbeans.entitysystem.ScreenSize;
 import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
+import buttley.nyc.esteban.magicbeans.model.boards.BackgroundNames;
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.WidgetTypeEnum;
 import buttley.nyc.esteban.magicbeans.model.characters.CharacterNamesEnum;
 
@@ -90,12 +92,10 @@ public class MainActivity extends Activity {
             }
         });
 
-
         soundMap.put(SoundNamesEnum.FART_1, soundPool.load(this, R.raw.sound1, 1));
         soundMap.put(SoundNamesEnum.FART_2, soundPool.load(this, R.raw.sound2, 1));
         soundMap.put(SoundNamesEnum.FART_3, soundPool.load(this, R.raw.sound3, 1));
-        soundMap.put(
-                SoundNamesEnum.FART_4, soundPool.load(this, R.raw.sound4, 1));
+        soundMap.put( SoundNamesEnum.FART_4, soundPool.load(this, R.raw.sound4, 1));
 
 //Todo find out if I need to reference audioManager in Assets
         Assets.loadSounds(audioManager, soundPool, soundMap);
@@ -105,17 +105,20 @@ public class MainActivity extends Activity {
     }
 
     public void loadWidgetBitmaps(){
-        List<Bitmap> titleList = new ArrayList<Bitmap>();
-        titleList.add(BitmapFactory.decodeResource(getResources(), R.drawable.title_text));
-        Assets.getWidgetBitmaps().put(WidgetTypeEnum.TITLE, titleList);
 
+
+
+        for(WidgetTypeEnum widgetType: WidgetTypeEnum.values()){
+            Assets.getWidgetBitmaps().put(widgetType,BitmapFactory.decodeResource(getResources(),
+                    R.drawable.title_text));
+        }
     }
 
     public void loadBackgrounds(){
 
         Bitmap bitmap;
         bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.background_9_16_bathroom);
-        Assets.loadAsset(BackgroundWidget.BackgroundNames.BATHROOM, bitmap);
+        Assets.loadAsset(BackgroundNames.BATHROOM, bitmap);
     }
 
     public void loadCharacterBitmaps(){
@@ -123,16 +126,20 @@ public class MainActivity extends Activity {
 
         Assets.loadAsset(CharacterNamesEnum.BUTTLEY,
                 BitmapFactory.decodeResource(getResources(), R.drawable.buttley_body_large));
-        Assets.loadAsset(CharacterNamesEnum.BABY,
-                BitmapFactory.decodeResource(getResources(), R.drawable.baby_walking_sheet));
+
+       for(CharacterNamesEnum name: CharacterNamesEnum.values()){
+           if(name != CharacterNamesEnum.BUTTLEY)
+           Assets.loadAsset(name,
+                   BitmapFactory.decodeResource(getResources(), R.drawable.baby_walking_sheet));
+        }
     }
 
     public void getScreenSize(){
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
-        GraphicPlacer.setsWidth(size.x);
-        GraphicPlacer.setsScreenHeight(size.y);
+        ScreenSize.setsScreenWidth(size.x);
+        ScreenSize.setsScreenHeight(size.y);
 
         if(LoggerConfig.ON){
             Log.v(LoggerConfig.LOG_TAG, "Screen size: Width: " + GraphicPlacer.getsWidth()
